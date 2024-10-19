@@ -1,0 +1,141 @@
+.sidebar-navigation {
+    background-color: rgb(215, 216, 217);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 64px; // Đặt chiều rộng cố định cho sidebar
+    padding: 0 4px;
+    z-index: 9999;
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &.center {
+        flex-grow: 1;
+        justify-content: center;
+        fa-icon {
+            margin: 15px 0;
+        }
+    }
+    &.bottom {
+        margin-bottom: 20px;
+        fa-icon {
+            margin: 10px 0;
+        }
+    }
+}
+
+fa-icon {
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    &:hover {
+        color: #007bff;
+    }
+}
+
+.icon-wrapper {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+    &:hover,
+    &.active {
+        background-color: rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+    }
+    fa-icon {
+        font-size: 24px;
+        color: #333;
+    }
+}
+
+.nav-item {
+    &.top,
+    &.center,
+    &.bottom {
+        .icon-wrapper {
+            width: 100%;
+            height: 50px;
+            margin: 10px 0;
+        }
+    }
+}
+
+///////////////////////////////////////////////////
+.main-container {
+    height: 100vh;
+    margin-left: 64px;
+    padding-left: 12px;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    justify-content: center;
+    overflow-y: auto;
+    background-color: #FAFAFA;
+}
+
+.main-container.has-overflow {
+    justify-content: start;
+}
+
+// Dropdown <
+.actions {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    bottom: 16px; // Có thể custom lại
+    left: 48px;
+    background-color: #f9f9f9;
+    border: 0.8px solid rgb(229, 229, 229);
+    border-radius: 16px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 10.5px 21px 0px;
+    min-width: 160px;
+    padding: 8px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 12px 12px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 12px;
+    fa-icon {
+        font-size: 20px;
+    }
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+.show {
+    display: block;
+}
+
+// Dropdown >
