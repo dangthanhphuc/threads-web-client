@@ -1,0 +1,31 @@
+<div class="section">
+    <div class="content">
+        <div class="content-title">
+            <div class="content-title-container">
+                <div class="space">
+
+                </div>
+                <div class="title">
+                    Tìm kiếm
+                </div>
+                <div class="actions">
+                    <button (click)="isDropdownOpen = !isDropdownOpen" class="dropbtn">
+                        <fa-icon [icon]="faEllipsis"></fa-icon>
+                    </button>
+                    <div [class.show]="isDropdownOpen" class="dropdown-content">
+                        <a (click)="onUnpin()">
+                            <span>Action 1</span>
+                            <fa-icon [icon]="faThumbTackSlash"></fa-icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-list">
+            @for (item of itemsVertical; track $index) {
+            <p>{{ item.toString() }}</p>
+            }
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,142 @@
+.section {
+    margin-right: 12px;
+    display: flex;
+    height: 100%;
+}
+
+.content {
+    max-width: 640px;
+    min-width: 420px;
+    width: 420px;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.content-title {
+    width: 100%;
+    min-height: 60px;
+    background-color: transparent;
+}
+
+.content-title-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 16px;
+    height: 60px;
+    padding: 0 16px;
+    >* {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .space {
+        padding-left: 8px;
+    }
+    .title {
+        column-gap: 8px;
+        font-size: 15px;
+        font-weight: 600;
+    }
+    .action {
+        padding-right: 8px;
+    }
+}
+
+.content-list {
+    width: 100%;
+    flex-grow: 1; // Thêm dòng này
+    background-color: white;
+    border: 0.8px solid rgb(213, 213, 213);
+    border-radius: 24px;
+    overflow-y: hidden;
+    transition: overflow-y 0.3s ease;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 0px 12px 0px;
+    &:hover {
+        overflow-y: scroll; // Hiển thị thanh cuộn khi hover
+    }
+}
+
+// Tùy chỉnh thanh cuộn
+.content-list::-webkit-scrollbar {
+    width: 8px; // Điều chỉnh chiều rộng của thanh cuộn
+}
+
+.content-list::-webkit-scrollbar-track {
+    background: #f1f1f1; // Màu nền của track
+}
+
+.content-list::-webkit-scrollbar-thumb {
+    background: #888; // Màu của thumb
+    border-radius: 4px; // Bo góc cho thumb
+}
+
+.content-list::-webkit-scrollbar-thumb:hover {
+    background: #555; // Màu khi hover
+}
+
+// Dropdown <
+.actions {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border: 0.8px solid rgb(213, 213, 213);
+    border-radius: 9999px;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    fa-icon {
+        font-size: 14px;
+        &:hover {
+            color: black;
+        }
+    }
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 30px; // Có thể custom lại
+    right: 0;
+    background-color: #f9f9f9;
+    border: 0.8px solid rgb(229, 229, 229);
+    border-radius: 16px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 10.5px 21px 0px;
+    min-width: 160px;
+    padding: 8px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 12px 12px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 12px;
+    fa-icon {
+        font-size: 20px;
+    }
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+.show {
+    display: block;
+}
+
+// Dropdown >

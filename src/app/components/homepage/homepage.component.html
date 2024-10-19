@@ -1,0 +1,68 @@
+<nav class="sidebar-navigation">
+    <ul class="nav-list">
+        <li class="nav-item top">
+            <div class="icon-wrapper" [class.active]="activeOptions == 1" (click)="onClickOptions(1)">
+                <fa-icon [icon]="faHouse"></fa-icon>
+            </div>
+        </li>
+        <li class="nav-item center">
+            <div class="icon-wrapper" [class.active]="activeOptions == 1" (click)="onClickOptions(1)">
+                <fa-icon [icon]="faHouse"></fa-icon>
+            </div>
+            <div class="icon-wrapper" [class.active]="activeOptions == 2" (click)="onClickOptions(2)">
+                <fa-icon [icon]="faMagnifyingGlass"></fa-icon>
+            </div>
+            <div class="icon-wrapper active">
+                <fa-icon [icon]="faPlus"></fa-icon>
+            </div>
+            <div class="icon-wrapper" [class.active]="activeOptions == 3" (click)="onClickOptions(3)">
+                <fa-icon [icon]="faHeart"></fa-icon>
+            </div>
+            <div class="icon-wrapper" [class.active]="activeOptions == 4" (click)="onClickOptions(4)">
+                <fa-icon [icon]="faUser"></fa-icon>
+            </div>
+        </li>
+        <li class="nav-item bottom">
+            <div class="actions" style="width: 100%">
+                <div (click)="isDropdownOpen = !isDropdownOpen" class="icon-wrapper">
+                    <fa-icon [icon]="faThumbTack"></fa-icon>
+                </div>
+                <div [class.show]="isDropdownOpen" class="dropdown-content">
+                    <a (click)="onAddPage('for-you')">
+                        <span>Dành cho bạn</span>
+                    </a>
+                    <a (click)="onAddPage('like')">
+                        <span>Yêu thích</span>
+                    </a>
+                    <a (click)="onAddPage('notification-section')">
+                        <span>Thông báo</span>
+                    </a>
+                    <a (click)="onAddPage('personal-page-section')">
+                        <span>Trang cá nhân</span>
+                    </a>
+                    <a (click)="onAddPage('search-section')">
+                        <span>Tìm kiếm</span>
+                    </a>
+                </div>
+            </div>
+            <div class="icon-wrapper">
+                <fa-icon [icon]="faBarsStaggered"></fa-icon>
+            </div>
+
+        </li>
+    </ul>
+</nav>
+
+<div class="main-container" #containerRef>
+    @if(visitedPages.includes("for-you")) {
+    <app-for-you (unpin)="unpinLike($event)"></app-for-you>
+    } @if(visitedPages.includes("like")) {
+    <app-like (unpin)="unpinLike($event)"></app-like>
+    } @if(visitedPages.includes("notification-section")) {
+    <app-notification-section (unpin)="unpinLike($event)"></app-notification-section>
+    } @if(visitedPages.includes("personal-page-section")) {
+    <app-personal-page-section (unpin)="unpinLike($event)"></app-personal-page-section>
+    } @if(visitedPages.includes("search-section")) {
+    <app-search-section (unpin)="unpinLike($event)"></app-search-section>
+    }
+</div>
